@@ -1,0 +1,36 @@
+.banner{
+    height: 100%;
+    padding: 0 2% 0 2%;
+    position: relative;
+}
+.userText{
+    margin: 0;
+    padding-left: 1%;
+    position: relative;
+    display: block;
+    float: left;
+    top: 0;
+}
+.name{
+    color: black;
+    font-size: 2vh;
+    margin: 0;
+}
+.secondaryText{
+    color: #8B96A2;
+    font-size: 1.5vh;
+    margin: 0;
+}
+.image{
+    width: 5vh;
+    border-radius: 10em;
+    position: relative;
+    display: block;
+    float: left;
+}
+.left{
+    background: green;
+}
+.right{
+    float: right;
+}
