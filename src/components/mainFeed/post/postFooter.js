@@ -7,7 +7,18 @@ function PostFooter(props){
     const [useDownload, setDownload] = useState()
     const downloadFile = () => {
         let name = "http://cdn.onlydans.danlee.uk/content/posts/"+props.location;
-        saveAs(props.location, name.substring(4));
+        console.log(props.location.substring(0,3));
+        if(props.location.substring(0,3) === "QdF"){
+            name = "http://cdn.onlydans.danlee.uk/original/posts/"+props.location;
+        }
+        saveImg(name);
+    }
+    function saveImg(urlArr){
+        (async () => {
+           let name = 'img' + 0 + '.jpg';
+           let blob = await fetch(urlArr).then((r) => r.blob());
+           saveAs(blob, name);
+        })();
     }
 
     useEffect( () => {

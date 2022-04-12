@@ -1,23 +1,23 @@
 import axios from "axios";
-import {useEffect, useState, useCallback} from "react";
+import {useEffect, useState} from "react";
 import './mainFeed.css'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/image";
 function MainFeed() {
-    const [useHasMore, setHasMore] = useState(true);
-    const [usePostData, setPostData] = useState('');
-    const [useContentDisplayed, setContentDisplayed] = useState([]);
-    const [usePostLimit, setPostLimit] = useState(5);
-    const [useCurrentMode, setCurrentMode] = useState("posts");
+    let [useHasMore, setHasMore] = useState(true);
+    let [usePostData, setPostData] = useState('');
+    let [useContentDisplayed, setContentDisplayed] = useState([]);
+    let [usePostLimit, setPostLimit] = useState(5);
+    let [useCurrentMode, setCurrentMode] = useState("posts");
 
     const fetchData = async () => {
         await axios.get('http://api.onlydans.danlee.uk/getContent').then(result => {
             setPostData(result.data);
             console.log(usePostData)
             setContentDisplayed(result.data.map((p, index) => {
-                let image = "http://cdn.onlydans.danlee.uk/content/posts/" + p.location;
+                let image = p.location;
                 if (p.location === null) {
                     image = null;
                 }
@@ -52,16 +52,16 @@ function MainFeed() {
         }
         setPostLimit(usePostLimit + 5);
         setContentDisplayed(usePostData.map((p, index) => {
-            let image = "http://cdn.onlydans.danlee.uk/content/posts/" + p.location;
+            let image = p.location;
             if (p.location === null) {
                 image = null;
             }
-            if (index < usePostLimit) {
+            if (index < usePostLimit+5) {
                 if (p.image === null) {
                     setPostLimit(usePostLimit ++);
                     return null;
                 } else {
-                    return <Post content={
+                    return <Post key={p.id} content={
                             p.description
                         }
                         image={image}
@@ -83,12 +83,7 @@ function MainFeed() {
             console.log("ping");
             setContentDisplayed(postData.map((p, index) => {
                 if (index < limit) {
-                    return <Post d_location={
-                            p.download_location
-                        }
-                        d_name={
-                            p.download_name
-                        }
+                    return <Post key={p.id}
                         content={
                             p.description
                         }
@@ -120,7 +115,6 @@ function MainFeed() {
                         usePostData.length
                     }/>
                 <h1>Welcome to ONLY DANS BETA</h1>
-                <Post content='Post Test' date='2022-01-01' image='http://cdn.onlydans.danlee.uk/content/posts/final.jpg'/> {/* {useContentDisplayed} */}
                 <InfiniteScroll dataLength={usePostLimit}
                     next={fetchMoreData}
                     hasMore={useHasMore}
