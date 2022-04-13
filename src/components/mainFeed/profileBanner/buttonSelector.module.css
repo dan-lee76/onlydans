@@ -1,0 +1,31 @@
+.row{
+    padding: 1vh 0 0 0 ;
+    width: 100%;
+    border-bottom: 3px solid #E2E5E8;
+}
+.text_wrapper{
+    width: 33%;
+    display: inline-flex;
+    padding: 1vh 0 1vh 0;
+    border: 0px;
+    font-weight: 500;
+    background: white;
+    font-size: 1em;
+}
+.text{
+    text-align: center;
+    margin: auto;
+}
+.text_wrapper:hover{
+    background: #F1F9FE;
+}
+.active{
+    width: 33%;
+    display: inline-flex;
+    padding: 1vh 0 1vh 0;
+    border: 0px;
+    border-bottom: 3px solid black;
+    font-weight: 500;
+    background: white;
+    font-size: 1em;
+}

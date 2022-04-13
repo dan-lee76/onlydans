@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/image";
+import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
 function MainFeed() {
     let [useHasMore, setHasMore] = useState(true);
     let [usePostData, setPostData] = useState('');
@@ -51,48 +52,54 @@ function MainFeed() {
             return;
         }
         setPostLimit(usePostLimit + 5);
-        setContentDisplayed(usePostData.map((p, index) => {
-            let image = p.location;
-            if (p.location === null) {
-                image = null;
-            }
-            if (index < usePostLimit+5) {
-                if (p.image === null) {
-                    setPostLimit(usePostLimit ++);
-                    return null;
-                } else {
-                    return <Post key={p.id} content={
-                            p.description
-                        }
-                        image={image}
-                        date={
-                            p.date
-                        }/>;
-                }
-            } else {
-                return null;
-            }
-        }))
+        handleToUpdate(useCurrentMode)
+        // setContentDisplayed(usePostData.map((p, index) => {
+        //     let image = p.location;
+        //     if (p.location === null) {
+        //         image = null;
+        //     }
+        //     if (index < usePostLimit+5) {
+        //         if (p.image === null) {
+        //             setPostLimit(usePostLimit ++);
+        //             return null;
+        //         } else {
+        //             return <Post key={p.id} content={
+        //                     p.description
+        //                 }
+        //                 image={image}
+        //                 date={
+        //                     p.date
+        //                 }/>;
+        //         }
+        //     } else {
+        //         return null;
+        //     }
+        // }))
     };
 
-    const handleToUpdate = () => {
-        const postData = usePostData;
-        var someArg = useCurrentMode;
-        var limit = usePostLimit;
-        if (someArg === "posts") {
+    const handleToUpdate = (mode) => {
+        console.log(mode)
+        setCurrentMode(mode);
+        if (mode === "posts") {
             console.log("ping");
-            setContentDisplayed(postData.map((p, index) => {
-                if (index < limit) {
-                    return <Post key={p.id}
-                        content={
-                            p.description
-                        }
-                        image={
-                            p.image
-                        }
-                        date={
-                            p.date
-                        }/>;
+            setContentDisplayed(usePostData.map((p, index) => {
+                let image = p.location;
+                if (p.location === null) {
+                    image = null;
+                }
+                if (index < usePostLimit+5) {
+                    if (p.image === null) {
+                        setPostLimit(usePostLimit ++);
+                        return null;
+                    } else {
+                        return <Post key={p.id} content={
+                                p.description
+                            }
+                            image={image}
+                            date={
+                                p.date
+                            }/>;
+                    }
                 } else {
                     return null;
                 }
@@ -101,9 +108,35 @@ function MainFeed() {
         // else if(someArg==="media"){
         //     this.setState({display:postData.map((p, index) => {if(index < limit){if(p.image==="NULL"){limit++; return null;}else{return <PostImage d_location={p.download_location} d_name={p.download_name} content={p.description} image={p.image} date={p.date}/>;}}else{return null;}})});
         // }
-        // else if(someArg==="archive"){
-        //     this.setState({display:null});
-        // }
+        else if (mode === "media") {
+            console.log("ping");
+            setContentDisplayed(usePostData.map((p, index) => {
+                let image = p.location;
+                if (p.location === null) {
+                    setPostLimit(usePostLimit++)
+                    return null
+                }
+                if (index < usePostLimit+5) {
+                    if (p.image === null) {
+                        setPostLimit(usePostLimit ++);
+                        return null;
+                    } else {
+                        return <Post key={p.id} content={
+                                p.description
+                            }
+                            image={image}
+                            date={
+                                p.date
+                            }/>;
+                    }
+                } else {
+                    return null;
+                }
+            }))
+        }
+        else if(mode==="archive"){
+            setContentDisplayed(<div></div>);
+        }
     }
 
 
@@ -114,17 +147,18 @@ function MainFeed() {
                     post_amount={
                         usePostData.length
                     }/>
-                <h1>Welcome to ONLY DANS BETA</h1>
+                <ButtonSelector handleToUpdate={handleToUpdate}/>
                 <InfiniteScroll dataLength={usePostLimit}
                     next={fetchMoreData}
                     hasMore={useHasMore}
                     loader={
                         <h4>Loading...</h4>
                     }
-                    endMessage={<p
-                        style={
-{textAlign: "center"}}>
-                    <b>Yay! You have seen it all</b></p>}>
+//                     endMessage={<p
+//                         style={
+// {textAlign: "center"}}>
+//                     <b>Yay! You have seen it all</b></p>}
+>
 
                     {useContentDisplayed} </InfiniteScroll>
             </div>
