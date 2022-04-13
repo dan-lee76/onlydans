@@ -6,7 +6,7 @@ function ProfileBanner(props){
     return(
         <div>
             <div className={styles.banner}>
-                    <div className={styles.bannerImg} style={{backgroundImage:"url(http://cdn.onlydans.danlee.uk/content/assets/banner.jpg)"}}></div>
+                    <div className={styles.bannerImg} style={{backgroundImage:"url(https://cdn.danlee.uk/content/assets/banner.jpg)"}}></div>
                     <div className={styles.stickyName}>
                         <a href="https://danlee.uk"><FontAwesomeIcon className={styles.backButton} icon={faArrowLeft} /></a>
                     <div className={styles.textArea}>
@@ -16,7 +16,7 @@ function ProfileBanner(props){
                     </div>
                 </div>
                 <div className={styles.userSection}>
-                <img className={styles.profilePic} src={'http://cdn.onlydans.danlee.uk/content/assets/userProfile.png'} alt="Dans Face"/>
+                <img className={styles.profilePic} src={'https://cdn.danlee.uk/content/assets/userProfile.png'} alt="Dans Face"/>
                 <h1 className={styles.name}>{props.name}</h1>
                 <h1 className={styles.username}>{props.username}</h1>
                 <p className={styles.userText}>{props.description}</p>

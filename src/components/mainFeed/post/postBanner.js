@@ -48,7 +48,7 @@ function PostBanner(props) {
                     <img className={
                             styles.image
                         }
-                        src="http://cdn.onlydans.danlee.uk/content/assets/userProfile.png"
+                        src="https://cdn.danlee.uk/content/assets/userProfile.png"
                         alt="Logo"/>
                     <div className={
                         styles.userText

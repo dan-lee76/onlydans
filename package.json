@@ -1,6 +1,7 @@
 {
   "name": "onlydans",
-  "version": "0.1.0",
+  "homepage": "https://onlydans.danlee.uk",
+  "version": "0.2.2",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -17,6 +18,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-scripts": "5.0.0",
     "react-scroll-to-top": "^1.0.8",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

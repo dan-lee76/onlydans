@@ -15,11 +15,11 @@ function Post(props){
 
     useEffect( () => {
         if(props.image !== null){
-            setImage(<div onClick={makeImgBig} className={styles.imgArea}><img className={styles.imgStandard} src={"http://cdn.onlydans.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
+            setImage(<div onClick={makeImgBig} className={styles.imgArea}><img className={styles.imgStandard} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
             setFooter(<PostFooter location={props.image}/>)
             if(useZoomed === true){
                 document.body.style.overflow = 'hidden'
-                setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"http://cdn.onlydans.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
+                setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
             }
             else{
                 document.body.style.overflow = 'unset'

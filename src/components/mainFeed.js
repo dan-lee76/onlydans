@@ -14,9 +14,8 @@ function MainFeed() {
     let [useCurrentMode, setCurrentMode] = useState("posts");
 
     const fetchData = async () => {
-        await axios.get('http://api.onlydans.danlee.uk/getContent').then(result => {
+        await axios.get('https://api.danlee.uk/getContent').then(result => {
             setPostData(result.data);
-            console.log(usePostData)
             setContentDisplayed(result.data.map((p, index) => {
                 let image = p.location;
                 if (p.location === null) {
@@ -42,7 +41,6 @@ function MainFeed() {
         })
     }
     useEffect(() => {
-        console.log(1)
         fetchData();
     }, [])
 
@@ -53,35 +51,11 @@ function MainFeed() {
         }
         setPostLimit(usePostLimit + 5);
         handleToUpdate(useCurrentMode)
-        // setContentDisplayed(usePostData.map((p, index) => {
-        //     let image = p.location;
-        //     if (p.location === null) {
-        //         image = null;
-        //     }
-        //     if (index < usePostLimit+5) {
-        //         if (p.image === null) {
-        //             setPostLimit(usePostLimit ++);
-        //             return null;
-        //         } else {
-        //             return <Post key={p.id} content={
-        //                     p.description
-        //                 }
-        //                 image={image}
-        //                 date={
-        //                     p.date
-        //                 }/>;
-        //         }
-        //     } else {
-        //         return null;
-        //     }
-        // }))
     };
 
     const handleToUpdate = (mode) => {
-        console.log(mode)
         setCurrentMode(mode);
         if (mode === "posts") {
-            console.log("ping");
             setContentDisplayed(usePostData.map((p, index) => {
                 let image = p.location;
                 if (p.location === null) {
@@ -105,11 +79,7 @@ function MainFeed() {
                 }
             }))
         }
-        // else if(someArg==="media"){
-        //     this.setState({display:postData.map((p, index) => {if(index < limit){if(p.image==="NULL"){limit++; return null;}else{return <PostImage d_location={p.download_location} d_name={p.download_name} content={p.description} image={p.image} date={p.date}/>;}}else{return null;}})});
-        // }
         else if (mode === "media") {
-            console.log("ping");
             setContentDisplayed(usePostData.map((p, index) => {
                 let image = p.location;
                 if (p.location === null) {
