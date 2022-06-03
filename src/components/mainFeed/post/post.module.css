@@ -44,6 +44,8 @@ h1{
     overflow: hidden;
     overflow-y: hidden;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
     
   }
   
