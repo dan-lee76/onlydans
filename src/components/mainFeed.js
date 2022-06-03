@@ -6,7 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/image";
 import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
-function MainFeed() {
+function MainFeed(props) {
     let [useHasMore, setHasMore] = useState(true);
     let [usePostData, setPostData] = useState('');
     let [useContentDisplayed, setContentDisplayed] = useState([]);
@@ -109,11 +109,15 @@ function MainFeed() {
         }
     }
 
+    function themeToggler(){
+        props.themeToggler();
+    }
+    
 
     return (
         <div><ScrollToTop smooth/>
             <div className="content">
-                <ProfileBanner name="Dan Lee" username="@dan-lee76" description="The onlydans exclusive site owner ;)"
+                <ProfileBanner themeToggler={themeToggler} name="Dan Lee" username="@dan-lee76" description="The onlydans exclusive site owner ;)"
                     post_amount={
                         usePostData.length
                     }/>

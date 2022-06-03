@@ -1,16 +1,12 @@
 .postSection{
-    border-bottom: 3px solid #E2E5E8;
+    border-bottom: 3px solid var(--post-border-color);
     padding: 1vh 0 1vh 0;
 }
 .content{
     position: relative;
     width: 100%;
 }
-h1{
-    color: black;
-    font-size: 2vh;
-    margin: 0;
-}
+
 .imgStandard{
     max-width:100%;
     max-height: 55vh;
