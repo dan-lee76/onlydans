@@ -6,6 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/image";
 import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
+import ImageMedia from "./mainFeed/media/image";
 function MainFeed(props) {
     let [useHasMore, setHasMore] = useState(true);
     let [usePostData, setPostData] = useState('');
@@ -80,32 +81,32 @@ function MainFeed(props) {
             }))
         }
         else if (mode === "media") {
-            setContentDisplayed(usePostData.map((p, index) => {
+            setContentDisplayed(() =>{return(<div><Post key='999' content='Media is currently in beta. Having issues? contact: media@onlydans.danlee.uk' date='2022-06-04' image={null}/>{usePostData.map((p, index) => {
                 let image = p.location;
                 if (p.location === null) {
                     setPostLimit(usePostLimit++)
                     return null
                 }
-                if (index < usePostLimit+5) {
+                if (index < usePostLimit+9) {
                     if (p.image === null) {
                         setPostLimit(usePostLimit ++);
                         return null;
                     } else {
-                        return <Post key={p.id} content={
+                        return(<div className="mediaOnly"><ImageMedia key={p.id} content={
                                 p.description
                             }
                             image={image}
                             date={
                                 p.date
-                            }/>;
+                            }/></div>)
                     }
                 } else {
                     return null;
                 }
-            }))
+            })}</div>)})
         }
         else if(mode==="archive"){
-            setContentDisplayed(<div></div>);
+            setContentDisplayed(<div><h1>Looks like this is still in development</h1></div>);
         }
     }
 

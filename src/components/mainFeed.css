@@ -3,7 +3,6 @@ body{
     margin: 0;
 }
 h1{
-  color: black;
   font-size: 2vh;
   margin: 0;
 }
@@ -12,6 +11,10 @@ h1{
     width: 693px;
     border: 3px solid var(--post-border-color);
     border-top: none;
+}
+.mediaOnly{
+  /* display: grid; */
+  /* overflow-x: hidden; */
 }
 @media only screen and (min-width: 1000px) {
   .content{
