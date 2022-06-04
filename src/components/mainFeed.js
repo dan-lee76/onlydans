@@ -6,6 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/image";
 import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
+import ImageMedia from "./mainFeed/media/image";
 function MainFeed(props) {
     let [useHasMore, setHasMore] = useState(true);
     let [usePostData, setPostData] = useState('');
@@ -86,18 +87,18 @@ function MainFeed(props) {
                     setPostLimit(usePostLimit++)
                     return null
                 }
-                if (index < usePostLimit+5) {
+                if (index < usePostLimit+9) {
                     if (p.image === null) {
                         setPostLimit(usePostLimit ++);
                         return null;
                     } else {
-                        return <Post key={p.id} content={
+                        return(<div className="mediaOnly"><ImageMedia key={p.id} content={
                                 p.description
                             }
                             image={image}
                             date={
                                 p.date
-                            }/>;
+                            }/></div>)
                     }
                 } else {
                     return null;
