@@ -19,7 +19,7 @@ function Post(props){
             setFooter(<PostFooter location={props.image}/>)
             if(useZoomed === true){
                 document.body.style.overflow = 'hidden'
-                setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
+                setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.date}>{props.date}</span><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
             }
             else{
                 document.body.style.overflow = 'unset'
