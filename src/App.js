@@ -2,8 +2,6 @@ import MainFeed from './components/mainFeed';
 import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./components/mainFeed/globalStyles";
 import { lightTheme, darkTheme } from "./components/mainFeed/Theme"
-import { useState} from "react";
-import Toggle from './components/mainFeed/Toggler';
 import {useDarkMode} from './components/mainFeed/useDarkMode';
 
 function App() {

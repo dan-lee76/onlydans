@@ -6,7 +6,7 @@ export const lightTheme = {
     toggleBorder: '#FFF',
     background: '#FFF',
     postBorderColor: '#E2E5E8',
-    bannerImg: 'url(https://cdn.danlee.uk/content/assets/banner.jpg)',
+    bannerImg: 'url(https://cdn.danlee.uk/content/assets/bannerLight.jpg)',
     switchIcon: faSun,
 }
 export const darkTheme = {
@@ -15,6 +15,6 @@ export const darkTheme = {
     toggleBorder: '#242529',
     background: '#161618',
     postBorderColor: '#242529',
-    bannerImg: 'url(https://cdn.danlee.uk/content/assets/banner_old.jpg)',
+    bannerImg: 'url(https://cdn.danlee.uk/content/assets/bannerDark.jpg)',
     switchIcon: faMoon,
 }

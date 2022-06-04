@@ -1,9 +1,7 @@
 import styles from "./profileBanner.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import styled, { useTheme } from "styled-components"
-import Toggle from "../Toggler";
-import { useState } from "react";
+import { useTheme } from "styled-components"
 function ProfileBanner(props){
     
     const theme = useTheme();
