@@ -81,7 +81,7 @@ function MainFeed(props) {
             }))
         }
         else if (mode === "media") {
-            setContentDisplayed(usePostData.map((p, index) => {
+            setContentDisplayed(() =>{return(<div><Post key='999' content='Media is currently in beta. Having issues? contact: media@onlydans.danlee.uk' date='2022-06-04' image={null}/>{usePostData.map((p, index) => {
                 let image = p.location;
                 if (p.location === null) {
                     setPostLimit(usePostLimit++)
@@ -103,10 +103,10 @@ function MainFeed(props) {
                 } else {
                     return null;
                 }
-            }))
+            })}</div>)})
         }
         else if(mode==="archive"){
-            setContentDisplayed(<div></div>);
+            setContentDisplayed(<div><h1>Looks like this is still in development</h1></div>);
         }
     }
 
