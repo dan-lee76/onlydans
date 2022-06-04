@@ -1,7 +1,7 @@
 .row{
     padding: 1vh 0 0 0 ;
     width: 100%;
-    border-bottom: 3px solid #E2E5E8;
+    border-bottom: 3px solid var(--post-border-color);
 }
 .text_wrapper{
     width: 33%;
@@ -9,15 +9,17 @@
     padding: 1vh 0 1vh 0;
     border: 0px;
     font-weight: 500;
-    background: white;
+    background: var(--bg-color);
     font-size: 1em;
 }
 .text{
     text-align: center;
     margin: auto;
+    color: var(--text-color);
+    font-family: var(--font-family);
 }
 .text_wrapper:hover{
-    background: #F1F9FE;
+    background: var(--post-border-color);
 }
 .active{
     width: 33%;

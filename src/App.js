@@ -1,19 +1,22 @@
 import MainFeed from './components/mainFeed';
-// import {ThemeProvider} from "styled-components";
-// import { GlobalStyles } from "./components/globalStyles";
-// import { lightTheme, darkTheme } from "./components/Theme"
-// import { useState} from "react";
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/mainFeed/globalStyles";
+import { lightTheme, darkTheme } from "./components/mainFeed/Theme"
+import {useDarkMode} from './components/mainFeed/useDarkMode';
+
 function App() {
-  // const [theme, setTheme] = useState('light');
-  // const themeToggler = () => {
-  //   theme === 'light' ? setTheme('dark') : setTheme('light')
-// }
+  const [theme, themeToggler] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  
   return (
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles/>
     <div className="App">
       <header className="App-header">
-        <MainFeed/>
+        <MainFeed themeToggler={themeToggler}/>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
 

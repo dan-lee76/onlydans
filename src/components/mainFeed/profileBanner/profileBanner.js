@@ -1,18 +1,24 @@
 import styles from "./profileBanner.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { useTheme } from "styled-components"
 function ProfileBanner(props){
+    
+    const theme = useTheme();
+
+
 
     return(
         <div>
             <div className={styles.banner}>
-                    <div className={styles.bannerImg} style={{backgroundImage:"url(https://cdn.danlee.uk/content/assets/banner.jpg)"}}></div>
+                    <div className={styles.bannerImg}></div>
                     <div className={styles.stickyName}>
                         <a href="https://danlee.uk"><FontAwesomeIcon className={styles.backButton} icon={faArrowLeft} /></a>
                     <div className={styles.textArea}>
                         <h1 className={styles.topName}>{props.name}</h1>
                         <h1 className={styles.underTopName}>{props.post_amount} Posts</h1>
                     </div>
+                    <button onClick={props.themeToggler}><FontAwesomeIcon className={styles.themeButton} icon={theme.switchIcon}/></button>
                     </div>
                 </div>
                 <div className={styles.userSection}>
