@@ -1,10 +1,14 @@
 import styles from "./profileBanner.module.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import styled from "styled-components"
+import styled, { useTheme } from "styled-components"
 import Toggle from "../Toggler";
+import { useState } from "react";
 function ProfileBanner(props){
+    
+    const theme = useTheme();
+
+
 
     return(
         <div>
@@ -16,8 +20,7 @@ function ProfileBanner(props){
                         <h1 className={styles.topName}>{props.name}</h1>
                         <h1 className={styles.underTopName}>{props.post_amount} Posts</h1>
                     </div>
-                    <button onClick={props.themeToggler}><FontAwesomeIcon className={styles.theme} icon={faSun} /></button>
-                    {/* <Toggle toggleTheme={props.themeToggler} /> */}
+                    <button onClick={props.themeToggler}><FontAwesomeIcon className={styles.themeButton} icon={theme.switchIcon}/></button>
                     </div>
                 </div>
                 <div className={styles.userSection}>

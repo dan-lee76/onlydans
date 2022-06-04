@@ -63,11 +63,19 @@
 }
 .backButton{
     color: white;
-    position: relative;
+    position: ab;
     padding: 0 0 0 2%;
     align-content: center;
     align-items: center;
     font-size: 3vh;
+}
+.themeButton{
+    color: white;
+    font-size: 3vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px 2% 0 0;
 }
 .textArea{
     color: white;
