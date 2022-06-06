@@ -9,6 +9,9 @@ function ImageMedia(props){
       })])
 
     function makeImgBig(){
+        setImageData(props.postData[props.postData.findIndex(function(item, i){
+            return parseInt(item.id) === props.id
+          })])
         setZoomed(!useZoomed);
         
     }
