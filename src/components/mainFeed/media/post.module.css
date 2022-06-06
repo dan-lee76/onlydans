@@ -44,33 +44,70 @@
   display: block;
   max-height: 100%;
   animation: zoom 0.4s;
+  padding: 0 0 36px 0;
 }
 
 /* The Close Button */
-.close {
+.close, .nextImage, .previousImage {
   position: absolute;
-  top: 15px;
-  right: 35px;
   color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s;
+  padding: 16px;
 }
 
 .close:hover,
-.close:focus {
+.close:focus, .nextImage:hover, .nextImage:focus, .previousImage:hover, .previousImage:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
+  background-color: rgba(0,0,0,0.8);
 }
-
-.date {
+.nextImage, .previousImage{
+  cursor: pointer;
   position: absolute;
-  top: 27px;
+  top: 50%;
+  width: auto;
+  margin-top: -26px;
+  color: white;
+  font-weight: bold;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+.close{
+  top: 0px;
+  right: 0px;
+}
+.nextImage{
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.previousImage{
+  left: 0;
+}
+.infoBot{
+  position: absolute;
+  background-color: red;
+  bottom: 0;
+  margin: auto;
+}
+.date, .content {
+  position: absolute;
   color: #f1f1f1;
-  font-size: 26px;
+  font-size: 18px;
   font-weight: bold;
   transition: 0.3s;
+  background-color: black;
+  opacity: 50%;
+}
+.date{
+  left: 0;
+  top: 27px;
+}
+.content{
+  bottom: 27px;
 }
 @keyframes zoom {
   from {

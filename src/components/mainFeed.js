@@ -92,13 +92,14 @@ function MainFeed(props) {
                         setPostLimit(usePostLimit ++);
                         return null;
                     } else {
-                        return(<div className="mediaOnly"><ImageMedia key={p.id} content={
+                        return(<div className="mediaOnly"><ImageMedia key={p.id} id={parseInt(p.id)} content={
                                 p.description
                             }
                             image={image}
                             date={
                                 p.date
-                            }/></div>)
+                            }
+                            postData={usePostData}/></div>)
                     }
                 } else {
                     return null;
@@ -116,7 +117,7 @@ function MainFeed(props) {
     
 
     return (
-        <div><ScrollToTop smooth/>
+        <div><ScrollToTop smooth />
             <div className="content">
                 <ProfileBanner themeToggler={themeToggler} name="Dan Lee" username="@dan-lee76" description="The onlydans exclusive site owner ;)"
                     post_amount={
