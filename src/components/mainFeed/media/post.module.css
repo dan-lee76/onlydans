@@ -86,6 +86,10 @@
 .content{
   bottom: 27px;
 }
+.previousImage{
+  left:0;
+  position: absolute;
+}
 @keyframes zoom {
   from {
     transform: scale(0);
