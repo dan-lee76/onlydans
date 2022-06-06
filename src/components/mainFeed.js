@@ -92,13 +92,14 @@ function MainFeed(props) {
                         setPostLimit(usePostLimit ++);
                         return null;
                     } else {
-                        return(<div className="mediaOnly"><ImageMedia key={p.id} content={
+                        return(<div className="mediaOnly"><ImageMedia key={p.id} id={parseInt(p.id)} content={
                                 p.description
                             }
                             image={image}
                             date={
                                 p.date
-                            }/></div>)
+                            }
+                            postData={usePostData}/></div>)
                     }
                 } else {
                     return null;
