@@ -52,8 +52,8 @@ function ImageMedia(props){
                     <span className={styles.date}>{useImageData.date}</span>
                     <span onClick={makeImgBig} className={styles.close}>&times;</span>
                     <img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+useImageData.location} alt={props.image}/>
-                    <span onClick={nextImage} className={styles.nextImage}>Next</span>
-                    <span onClick={previousImage} className={styles.previousImage}>Prev</span>
+                    <span onClick={nextImage} className={styles.nextImage}>&gt;</span>
+                    <span onClick={previousImage} className={styles.previousImage}>&lt;</span>
                     <span className={styles.content}>{useImageData.description}</span>
                     </div>)
             }

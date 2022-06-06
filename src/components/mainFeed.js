@@ -117,7 +117,7 @@ function MainFeed(props) {
     
 
     return (
-        <div><ScrollToTop smooth/>
+        <div><ScrollToTop smooth />
             <div className="content">
                 <ProfileBanner themeToggler={themeToggler} name="Dan Lee" username="@dan-lee76" description="The onlydans exclusive site owner ;)"
                     post_amount={
