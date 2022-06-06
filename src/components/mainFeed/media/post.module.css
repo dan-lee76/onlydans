@@ -44,6 +44,7 @@
   display: block;
   max-height: 100%;
   animation: zoom 0.4s;
+  padding: 0 0 36px 0;
 }
 
 /* The Close Button */
@@ -63,14 +64,27 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-.date {
+.infoBot{
   position: absolute;
-  top: 27px;
+  background-color: red;
+  bottom: 0;
+  margin: auto;
+}
+.date, .content {
+  position: absolute;
   color: #f1f1f1;
-  font-size: 26px;
+  font-size: 18px;
   font-weight: bold;
   transition: 0.3s;
+  background-color: black;
+  opacity: 50%;
+}
+.date{
+  left: 0;
+  top: 27px;
+}
+.content{
+  bottom: 27px;
 }
 @keyframes zoom {
   from {
