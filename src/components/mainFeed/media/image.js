@@ -19,21 +19,26 @@ function ImageMedia(props){
     }
 
     function nextImage(){
-        console.log(props.id)
-        // let idAdd = indexOfCurrent + 1
-        // console.log(indexOfCurrent)
-        // // setImageLoc(props.postData[indexOfCurrent+1].location)
-        // console.log(props.postData[indexOfCurrent+1])
-        // console.log(props.postData[indexOfCurrent])
-        // setImageData(props.postData[indexOfCurrent+1])
         let newIndex = useCurrentIndex
-        do{
-            newIndex++
-            setCurrentIndex(newIndex)
-            setImageData(props.postData[newIndex])
-        }while(props.postData[newIndex].location == null)
-        // setCurrentIndex(newIndex)
-        // setImageData(props.postData[newIndex])
+        if(newIndex != props.postData.length-1){
+            do{
+                newIndex++
+                setCurrentIndex(newIndex)
+                setImageData(props.postData[newIndex])
+            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) != props.postData.length-1)
+        }
+        console.log(props.postData[newIndex].location)
+    }
+
+    function previousImage(){
+        let newIndex = useCurrentIndex
+        if(newIndex != 0){
+            do{
+                newIndex--
+                setCurrentIndex(newIndex)
+                setImageData(props.postData[newIndex])
+            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) != 0)
+        }
         console.log(props.postData[newIndex].location)
     }
 
@@ -48,7 +53,7 @@ function ImageMedia(props){
                     <span onClick={makeImgBig} className={styles.close}>&times;</span>
                     <img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+useImageData.location} alt={props.image}/>
                     <span onClick={nextImage} className={styles.nextImage}>Next</span>
-                    <span onClick={nextImage} className={styles.previousImage}>Prev</span>
+                    <span onClick={previousImage} className={styles.previousImage}>Prev</span>
                     <span className={styles.content}>{useImageData.description}</span>
                     </div>)
             }
