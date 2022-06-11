@@ -20,24 +20,24 @@ function ImageMedia(props){
 
     function nextImage(){
         let newIndex = useCurrentIndex
-        if(newIndex != props.postData.length-1){
+        if(newIndex !== props.postData.length-1){
             do{
                 newIndex++
                 setCurrentIndex(newIndex)
                 setImageData(props.postData[newIndex])
-            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) != props.postData.length-1)
+            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) !== props.postData.length-1)
         }
         console.log(props.postData[newIndex].location)
     }
 
     function previousImage(){
         let newIndex = useCurrentIndex
-        if(newIndex != 0){
+        if(newIndex !== 0){
             do{
                 newIndex--
                 setCurrentIndex(newIndex)
                 setImageData(props.postData[newIndex])
-            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) != 0)
+            }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) !== 0)
         }
         console.log(props.postData[newIndex].location)
     }
