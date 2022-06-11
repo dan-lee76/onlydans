@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Download from '../util/download';
 import styles from './post.module.css';
 function ImageMedia(props){
     let [useZoomed, setZoomed] = useState(false);
@@ -49,7 +50,7 @@ function ImageMedia(props){
             if(useZoomed === true){
                 document.body.style.overflow = 'hidden'
                 setImageZoomed(<div className={styles.imageZoomedBG}>
-                    <span className={styles.date}>{useImageData.date}</span>
+                    <span className={styles.date}>{useImageData.date}<Download location={useImageData.location}/></span>
                     <span onClick={makeImgBig} className={styles.close}>&times;</span>
                     <img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+useImageData.location} alt={props.image}/>
                     <span onClick={nextImage} className={styles.nextImage}>&gt;</span>
