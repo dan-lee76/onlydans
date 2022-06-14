@@ -10,38 +10,48 @@ import ImageMedia from "./mainFeed/media/image";
 function MainFeed(props) {
   let [useHasMore, setHasMore] = useState(true);
   let [usePostData, setPostData] = useState("");
-  let [useContentDisplayed, setContentDisplayed] = useState([]);
+  let [useContentDisplayed, setContentDisplayed] = useState(<div></div>);
   let [usePostLimit, setPostLimit] = useState(5);
   let [useCurrentMode, setCurrentMode] = useState("posts");
 
   const fetchData = async () => {
     await axios.get("https://api.danlee.uk/getContent").then((result) => {
       setPostData(result.data);
-      setContentDisplayed(
-        result.data.map((p, index) => {
-          let image = p.location;
-          if (p.location === null) {
-            image = null;
-          }
-          if (index < usePostLimit) {
-            if (p.image === null) {
-              setPostLimit(usePostLimit++);
-              return null;
-            } else {
-              return (
-                <Post content={p.description} image={image} date={p.date} />
-              );
-            }
-          } else {
-            return null;
-          }
-        })
-      );
+      handleToUpdate(useCurrentMode);
+      //   setContentDisplayed(
+      //     result.data.map((p, index) => {
+      //       let image = p.location;
+      //       if (p.location === null) {
+      //         image = null;
+      //       }
+      //       if (index < usePostLimit) {
+      //         if (p.image === null) {
+      //           setPostLimit(usePostLimit++);
+      //           return null;
+      //         } else {
+      //           return (
+      //             <Post
+      //               key={p.id}
+      //               id={parseInt(p.id)}
+      //               content={p.description}
+      //               image={image}
+      //               date={p.date}
+      //               postData={usePostData}
+      //             />
+      //           );
+      //         }
+      //       } else {
+      //         return null;
+      //       }
+      //     })
+      //   );
     });
   };
+
   useEffect(() => {
     fetchData();
-  }, []);
+    // handleToUpdate(useCurrentMode);
+  }, [usePostData]);
 
   function fetchMoreData() {
     if (usePostLimit >= usePostData.length) {
@@ -88,7 +98,7 @@ function MainFeed(props) {
           <div>
             <Post
               key="999"
-              content="Media is currently in beta. Having issues? contact: media@onlydans.danlee.uk"
+              content="Media is currently in beta. Having issues? contact: report@onlydans.danlee.uk"
               date="2022-06-04"
               image={null}
             />

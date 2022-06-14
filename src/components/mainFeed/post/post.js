@@ -46,13 +46,15 @@ function Post(props) {
 
   return (
     <div className={styles.postSection}>
-      {/* <div className={styles.banner}><PostBanner date={props.date}/></div>
-           <div className={styles.content}>
-           <p className={styles.text}>{props.content}</p> */}
-      {useImage}
-      {useImageZoomed}
-      {/* {useFooter}
-           </div> */}
+      <div className={styles.banner}>
+        <PostBanner date={props.date} />
+      </div>
+      <div className={styles.content}>
+        <p className={styles.text}>{props.content}</p>
+        {useImage}
+        {useImageZoomed}
+        {useFooter}
+      </div>
     </div>
   );
 }
