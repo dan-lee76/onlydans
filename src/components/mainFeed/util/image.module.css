@@ -1,0 +1,104 @@
+  /* The Modal (background) */
+  .imageZoomedBG {
+    /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 1); /* Black w/ opacity */
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .imageZoomed {
+    margin: auto;
+    display: block;
+    max-height: 100%;
+    animation: zoom 0.4s;
+    padding: 0 0 36px 0;
+  }
+  
+  /* The Close Button */
+  .close, .nextImage, .previousImage {
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 16px;
+  }
+  
+  .close:hover,
+  .close:focus, .nextImage:hover, .nextImage:focus, .previousImage:hover, .previousImage:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.8);
+  }
+  .nextImage, .previousImage{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -26px;
+    color: white;
+    font-weight: bold;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .close{
+    top: 0px;
+    right: 0px;
+  }
+  .nextImage{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .previousImage{
+    left: 0;
+  }
+  .infoBot{
+    position: absolute;
+    background-color: red;
+    bottom: 0;
+    margin: auto;
+  }
+  .date, .content {
+    position: absolute;
+    color: #f1f1f1;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    background-color: black;
+    opacity: 50%;
+  }
+  .date{
+    left: 0;
+    top: 27px;
+  }
+  .content{
+    bottom: 27px;
+  }
+  @keyframes zoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .imageZoomed {
+      max-width: 100%;
+    }
+  }
+  

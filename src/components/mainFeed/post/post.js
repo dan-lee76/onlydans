@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
-import ZoomedImage from "../util/zoomedImage";
 import styles from "./post.module.css";
-function ImageMedia(props) {
+import PostBanner from "./postBanner";
+import PostFooter from "./postFooter";
+import ZoomedImage from "../util/zoomedImage";
+function Post(props) {
   let [useZoomed, setZoomed] = useState(false);
   let [useImageZoomed, setImageZoomed] = useState(<div></div>);
   let [useImage, setImage] = useState(<div></div>);
+  let [useFooter, setFooter] = useState();
 
   function makeImgBig() {
     setZoomed(!useZoomed);
   }
+
   useEffect(() => {
     if (props.image !== null) {
       setImage(
@@ -20,9 +24,10 @@ function ImageMedia(props) {
           />
         </div>
       );
+      setFooter(<PostFooter location={props.image} />);
       if (useZoomed === true) {
         document.body.style.overflow = "hidden";
-        console.log(props.postData);
+        // setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.date}>{props.date}</span><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
         setImageZoomed(
           <ZoomedImage
             id={parseInt(props.id)}
@@ -34,15 +39,22 @@ function ImageMedia(props) {
         document.body.style.overflow = "unset";
         setImageZoomed(<div></div>);
       }
+    } else {
+      setFooter(<PostFooter location={null} />);
     }
   }, [useZoomed]);
 
   return (
-    <div>
+    <div className={styles.postSection}>
+      {/* <div className={styles.banner}><PostBanner date={props.date}/></div>
+           <div className={styles.content}>
+           <p className={styles.text}>{props.content}</p> */}
       {useImage}
       {useImageZoomed}
+      {/* {useFooter}
+           </div> */}
     </div>
   );
 }
 
-export default ImageMedia;
+export default Post;
