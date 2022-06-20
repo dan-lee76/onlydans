@@ -14,44 +14,15 @@ function MainFeed(props) {
   let [usePostLimit, setPostLimit] = useState(5);
   let [useCurrentMode, setCurrentMode] = useState("posts");
 
-  const fetchData = async () => {
-    await axios.get("https://api.danlee.uk/getContent").then((result) => {
-      setPostData(result.data);
-      handleToUpdate(useCurrentMode);
-      //   setContentDisplayed(
-      //     result.data.map((p, index) => {
-      //       let image = p.location;
-      //       if (p.location === null) {
-      //         image = null;
-      //       }
-      //       if (index < usePostLimit) {
-      //         if (p.image === null) {
-      //           setPostLimit(usePostLimit++);
-      //           return null;
-      //         } else {
-      //           return (
-      //             <Post
-      //               key={p.id}
-      //               id={parseInt(p.id)}
-      //               content={p.description}
-      //               image={image}
-      //               date={p.date}
-      //               postData={usePostData}
-      //             />
-      //           );
-      //         }
-      //       } else {
-      //         return null;
-      //       }
-      //     })
-      //   );
-    });
-  };
 
   useEffect(() => {
-    fetchData();
-    // handleToUpdate(useCurrentMode);
-  }, [usePostData]);
+    const fetchData = async () => {
+      await axios.get("https://api.danlee.uk/getContent").then((result) => {
+        setPostData(result.data)
+      });
+    };
+    fetchData()
+  }, []);
 
   function fetchMoreData() {
     if (usePostLimit >= usePostData.length) {
