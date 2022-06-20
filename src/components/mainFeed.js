@@ -16,12 +16,9 @@ function MainFeed(props) {
 
 
   useEffect(() => {
-    const fetchData = async () => {
-      await axios.get("https://api.danlee.uk/getContent").then((result) => {
+      axios.get("https://api.danlee.uk/getContent").then((result) => {
         setPostData(result.data)
       });
-    };
-    fetchData()
   }, []);
 
   useEffect(() => {handleToUpdate('posts')},[usePostData])
@@ -141,7 +138,7 @@ function MainFeed(props) {
           // {textAlign: "center"}}>
           //                     <b>Yay! You have seen it all</b></p>}
         >
-          {useContentDisplayed}
+          {useContentDisplayed}{''}
         </InfiniteScroll>
       </div>
     </div>
