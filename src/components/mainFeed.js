@@ -6,7 +6,7 @@ import ScrollToTop from "react-scroll-to-top";
 import ProfileBanner from "./mainFeed/profileBanner/profileBanner";
 import Post from "./mainFeed/post/post";
 import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
-import ImageMedia from "./mainFeed/media/image";
+import ImageMedia from "./mainFeed/media/mediaPost";
 function MainFeed(props) {
   let [useHasMore, setHasMore] = useState(true);
   let [usePostData, setPostData] = useState([]);
