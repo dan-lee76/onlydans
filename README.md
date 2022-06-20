@@ -15,7 +15,7 @@ View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
   - [x] View all images available
   - [x] View date of image uploaded 
   - [x] Image navigation #6
-  - [ ] Download image from media view
+  - [x] Download image from media view
   - [ ] Use thumbnails so media loads quicker
 - [ ] Full unicode support
 - [ ] Ability to play videos
