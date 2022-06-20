@@ -141,7 +141,7 @@ function MainFeed(props) {
           // {textAlign: "center"}}>
           //                     <b>Yay! You have seen it all</b></p>}
         >
-          {useContentDisplayed}{" "}
+          {useContentDisplayed}
         </InfiniteScroll>
       </div>
     </div>
