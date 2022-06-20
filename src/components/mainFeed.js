@@ -9,7 +9,7 @@ import ButtonSelector from "./mainFeed/profileBanner/buttonSelector";
 import ImageMedia from "./mainFeed/media/image";
 function MainFeed(props) {
   let [useHasMore, setHasMore] = useState(true);
-  let [usePostData, setPostData] = useState("");
+  let [usePostData, setPostData] = useState([]);
   let [useContentDisplayed, setContentDisplayed] = useState(<div></div>);
   let [usePostLimit, setPostLimit] = useState(5);
   let [useCurrentMode, setCurrentMode] = useState("posts");
@@ -23,6 +23,8 @@ function MainFeed(props) {
     };
     fetchData()
   }, []);
+
+  useEffect(() => {handleToUpdate('posts')},[usePostData])
 
   function fetchMoreData() {
     if (usePostLimit >= usePostData.length) {
