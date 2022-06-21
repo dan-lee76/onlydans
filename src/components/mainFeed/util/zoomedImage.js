@@ -1,4 +1,4 @@
-import {useEffect, useState } from 'react';
+import {useState } from 'react';
 import Download from './download';
 import styles from './image.module.css';
 function ZoomedImage(props){
@@ -6,7 +6,6 @@ function ZoomedImage(props){
         return parseInt(item.id) === props.id
       }))
     let [useImageData, setImageData] = useState(props.postData[useCurrentIndex])
-    let [useFirstImageIndex, setFirstImageIndex] = useState(0)
 
     function nextImage(){
         let newIndex = useCurrentIndex
