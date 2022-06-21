@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import {useEffect, useState } from 'react';
 import Download from './download';
 import styles from './image.module.css';
 function ZoomedImage(props){
@@ -6,17 +6,18 @@ function ZoomedImage(props){
         return parseInt(item.id) === props.id
       }))
     let [useImageData, setImageData] = useState(props.postData[useCurrentIndex])
+    let [useFirstImageIndex, setFirstImageIndex] = useState(0)
 
     function nextImage(){
         let newIndex = useCurrentIndex
         if(newIndex !== props.postData.length-1){
             do{
                 newIndex++
-                setCurrentIndex(newIndex)
-                setImageData(props.postData[newIndex])
+                
             }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) !== props.postData.length-1)
         }
-        console.log(props.postData[newIndex].location)
+        setCurrentIndex(newIndex)
+        setImageData(props.postData[newIndex])
     }
 
     function previousImage(){
@@ -24,11 +25,10 @@ function ZoomedImage(props){
         if(newIndex !== 0){
             do{
                 newIndex--
-                setCurrentIndex(newIndex)
-                setImageData(props.postData[newIndex])
             }while(props.postData[newIndex].location == null && parseInt(props.postData[newIndex].id) !== 0)
         }
-        console.log(props.postData[newIndex].location)
+        setCurrentIndex(newIndex)
+        setImageData(props.postData[newIndex])
     }
 
     
