@@ -10,7 +10,7 @@ View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
 
 ## Upcoming Features
 - [x] Darkmode
-- [ ] Loading Darkmode
+- [x] Loading Darkmode
 - [ ] Media View
   - [x] View all images available
   - [x] View date of image uploaded 
@@ -22,7 +22,7 @@ View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
   - [ ] Implement backend
   - [ ] Implement frontend
 - [ ] Implement like mode
-- [ ] Autobuilds based on source code
+- [x] Autobuilds based on source code
 
 ## API
 I have implemented a backend for [OnlyDans](https://go.danlee.uk/onlydans). This is a connection to the DB, and has the ability to modify the content displayed.
