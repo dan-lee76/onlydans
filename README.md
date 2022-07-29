@@ -6,7 +6,7 @@ This is the newer version of [OnlyDans](https://github.com/dan-lee76/onlydans) w
 This is a site in the style of another popular _Only_ site, but this is danified.
 I have also created a custom backend using php for the site to retrieve data from a database.
 
-View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
+View site: [onlydans.uk](https://go.danlee.uk/onlydans)
 
 ## Upcoming Features
 - [x] Darkmode
