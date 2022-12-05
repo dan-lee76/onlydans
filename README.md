@@ -3,7 +3,7 @@ The exclusive site for dan lee
 ---
 This is the newer version of [OnlyDans](https://github.com/dan-lee76/onlydans) which uses reacthooks instead of the classes.
 
-This is a site in the style of another popular _Only_ site, but this is danified.
+This is a media sharing site used only for people called Dan. (Currently only implemented for Dan Lee)
 I have also created a custom backend using php for the site to retrieve data from a database.
 
 View site: [onlydans.uk](https://go.danlee.uk/onlydans)
