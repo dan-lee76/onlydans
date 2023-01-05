@@ -18,9 +18,10 @@ View site: [onlydans.uk](https://go.danlee.uk/onlydans)
   - [x] Download image from media view
   - [ ] Use thumbnails so media loads quicker
 - [ ] Full unicode support
-- [ ] Ability to play videos
-  - [ ] Implement backend
-  - [ ] Implement frontend
+- [x] Ability to play videos
+  - [x] Implement backend
+  - [x] Implement frontend
+- [ ] Video mode shows thumbnail instead of play button
 - [ ] Implement like mode
 - [x] Autobuilds based on source code
 
