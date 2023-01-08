@@ -10,7 +10,7 @@ function ImageMedia(props) {
     setZoomed(!useZoomed);
   }
   useEffect(() => {
-    if (props.image !== null) {
+    if (props.image !== null && props.image.substring(props.image.length - 3) !== "mp4") {
       setImage(
         <div onClick={makeImgBig} className={styles.imgArea}>
           <img

@@ -19,6 +19,7 @@ function Post(props) {
     if (props.image !== null) {
       if(props.image.substring(props.image.length-3) === 'mp4'){
         setImage(<div><ReactPlayer className={styles.imgStandard} url={"https://cdn.danlee.uk/content/posts_video/"+ props.image}  light controls ></ReactPlayer></div>)
+        setFooter(<PostFooter location={null} />);
       }
       else {
         setImage(
