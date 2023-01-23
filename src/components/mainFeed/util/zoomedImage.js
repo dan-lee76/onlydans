@@ -11,7 +11,6 @@ function ZoomedImage(props){
         let newIndex = useCurrentIndex
         if(newIndex !== props.postData.length-1){
             do{
-                console.log(props.postData[newIndex]);
                 newIndex++
                 
             }while((props.postData[newIndex].location == null || props.postData[newIndex].location.substring(props.postData[newIndex].location.length - 3) === "mp4") && parseInt(props.postData[newIndex].id) !== props.postData.length-1)
