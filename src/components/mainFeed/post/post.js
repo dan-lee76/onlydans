@@ -17,30 +17,30 @@ function Post(props) {
   useEffect(() => {
 
     if (props.image !== null) {
-      if(props.image.substring(props.image.length-3) === 'mp4'){
-        setImage(<div><ReactPlayer className={styles.imgStandard} url={"https://cdn.danlee.uk/content/posts_video/"+ props.image}  light controls ></ReactPlayer></div>)
+      if (props.image.substring(props.image.length - 3) === 'mp4') {
+        setImage(<div><ReactPlayer className={styles.imgStandard} url={"https://cdn.danlee.uk/content/posts_video/" + props.image} light controls ></ReactPlayer></div>)
         setFooter(<PostFooter location={null} />);
       }
       else {
         setImage(
-            <div onClick={makeImgBig} className={styles.imgArea}>
-              <img
-                  className={styles.imgStandard}
-                  src={"https://cdn.danlee.uk/content/posts/" + props.image}
-                  alt={props.image}
-              />
-            </div>
+          <div onClick={makeImgBig} className={styles.imgArea}>
+            <img
+              className={styles.imgStandard}
+              src={"https://cdn.danlee.uk/content/posts/" + props.image}
+              alt={props.image}
+            />
+          </div>
         );
-        setFooter(<PostFooter location={props.image}/>);
+        setFooter(<PostFooter location={props.image} />);
         if (useZoomed === true) {
           document.body.style.overflow = "hidden";
           // setImageZoomed(<div onClick={makeImgBig} className={styles.imageZoomedBG}><span className={styles.date}>{props.date}</span><span className={styles.close}>&times;</span><img className={styles.imageZoomed} src={"https://cdn.danlee.uk/content/posts/"+props.image} alt={props.image}/></div>)
           setImageZoomed(
-              <ZoomedImage
-                  id={parseInt(props.id)}
-                  postData={props.postData}
-                  makeImgBig={makeImgBig}
-              />
+            <ZoomedImage
+              id={parseInt(props.id)}
+              postData={props.postData}
+              makeImgBig={makeImgBig}
+            />
           );
         } else {
           document.body.style.overflow = "unset";
@@ -52,13 +52,19 @@ function Post(props) {
     }
   }, [useZoomed]);
 
+  const decodeHtmlCharCodes = str => {
+    const decodedString = document.createElement("textarea");
+    decodedString.innerHTML = str;
+    return decodedString.value;
+  }
+
   return (
     <div className={styles.postSection}>
       <div className={styles.banner}>
         <PostBanner date={props.date} />
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>{props.content}</p>
+        <p className={styles.text}>{decodeHtmlCharCodes(props.content)}</p>
         {useImage}
         {useImageZoomed}
         {useFooter}
