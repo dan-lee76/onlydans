@@ -3,14 +3,14 @@ The exclusive site for dan lee
 ---
 This is the newer version of [OnlyDans](https://github.com/dan-lee76/onlydans) which uses reacthooks instead of the classes.
 
-This is a site in the style of another popular _Only_ site, but this is danified.
+This is a media sharing site used only for people called Dan. (Currently only implemented for Dan Lee)
 I have also created a custom backend using php for the site to retrieve data from a database.
 
-View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
+View site: [onlydans.uk](https://go.danlee.uk/onlydans)
 
 ## Upcoming Features
 - [x] Darkmode
-- [ ] Loading Darkmode
+- [x] Loading Darkmode
 - [ ] Media View
   - [x] View all images available
   - [x] View date of image uploaded 
@@ -18,11 +18,12 @@ View site: [onlydans.danlee.uk](https://go.danlee.uk/onlydans)
   - [x] Download image from media view
   - [ ] Use thumbnails so media loads quicker
 - [ ] Full unicode support
-- [ ] Ability to play videos
-  - [ ] Implement backend
-  - [ ] Implement frontend
+- [x] Ability to play videos
+  - [x] Implement backend
+  - [x] Implement frontend
+- [ ] Video mode shows thumbnail instead of play button
 - [ ] Implement like mode
-- [ ] Autobuilds based on source code
+- [x] Autobuilds based on source code
 
 ## API
 I have implemented a backend for [OnlyDans](https://go.danlee.uk/onlydans). This is a connection to the DB, and has the ability to modify the content displayed.

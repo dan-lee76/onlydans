@@ -68,8 +68,8 @@ function MainFeed(props) {
           <div>
             <Post
               key="999"
-              content="Media is currently in beta. Having issues? contact: report@onlydans.danlee.uk"
-              date="2022-06-04"
+              content="Media currently only displays images. Videos will be added soon."
+              date="2023-01-08"
               image={null}
             />
             {usePostData.map((p, index) => {
@@ -124,7 +124,7 @@ function MainFeed(props) {
           themeToggler={themeToggler}
           name="Dan Lee"
           username="@dan-lee76"
-          description="The onlydans exclusive site owner ;)"
+          description="I am Dan Lee. The exclusive OnlyDans owner."
           post_amount={usePostData.length}
         />
         <ButtonSelector handleToUpdate={handleToUpdate} />
