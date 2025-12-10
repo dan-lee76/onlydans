@@ -30,10 +30,10 @@ function App() {
       </div>
     </div>)
 
-  setTimeout(hideElement, 1000)
+  setTimeout(hideElement, 5000)
   function hideElement(){
     setLoader(<div></div>)
-    setContent(<MainFeed themeToggler={themeToggler} />)
+    window.location.replace('https://danlee.uk');
   }
 
   return (
